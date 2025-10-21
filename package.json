@@ -8,6 +8,8 @@
     "dev:server": "npm run dev --workspace server",
     "dev:client": "npm run dev --workspace client",
     "build": "npm run build --workspace client",
+    "postinstall": "npm run prisma:generate --workspace server || (cd server && npx prisma generate)",
+    "prisma:generate": "cd server && npx prisma generate && echo '✅ Prisma client generated successfully'",
     "start": "npm run start --workspace server"
   },
   "workspaces": [
